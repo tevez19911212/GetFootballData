@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Get Football Data</title>
+</head>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+      th:href="@{/webjars/bootstrap/4.1.0/css/bootstrap.min.css}" rel="stylesheet" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+        th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/4.1.0/js/bootstrap.min.js}"></script>
+  <body>
+	<h1>マンチェスター・シティFCの試合結果</h1>
+	<p>2017-2018シーズンの試合結果を表示します。</p>
+	<div style="margin-top:8px" th:each="teamsFixtures: ${TeamsFixturesDto.fixtures}">
+	<p th:text="${teamsFixtures.date}"></p>
+	<table border="1" style="width:500px;table-layout:fixed">
+		<tbody>
+			<tr>
+				<td style="text-align:center;background: lightblue;"  th:text="${teamsFixtures.homeTeamName}"></td>
+				<td style="text-align:center;background: lightblue;"  th:text="${teamsFixtures.awayTeamName}"></td>
+			</tr>
+			<tr>
+				<td colspan="2" style="text-align:center" th:text="${teamsFixtures.result.goalsHomeTeam + ' - ' + teamsFixtures.result.goalsAwayTeam }"></td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<div class="matchresults-end"></div>
+  </body>
+</html>
