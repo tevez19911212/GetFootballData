@@ -16,7 +16,9 @@ public class GetFootballDataController {
 
 	@RequestMapping("/")
 	public String index(Model model) {
-		TeamsFixturesDto dto = service.getMatchresults();
+		// TODO とりあえず2017-2018シーズン固定 将来的には画面から取得する
+		String season = "2017";
+		TeamsFixturesDto dto = service.getMatchresults(season);
 		model.addAttribute("TeamsFixturesDto", dto);
 		return "index";
 	}

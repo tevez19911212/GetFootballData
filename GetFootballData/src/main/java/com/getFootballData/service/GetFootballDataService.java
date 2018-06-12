@@ -7,6 +7,6 @@ import com.getFootballData.dto.TeamsFixturesDto;
 @Service
 public interface GetFootballDataService {
 
-	public TeamsFixturesDto getMatchresults();
+	public TeamsFixturesDto getMatchresults(String season);
 
 }
