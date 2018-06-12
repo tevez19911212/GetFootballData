@@ -15,11 +15,11 @@ public class GetFootballDataServiceImpl implements GetFootballDataService {
 	 @Qualifier("getFootballDataServiceRestTemplate")
 	 RestTemplate restTemplate;
 
-	 private static final String URL = "http://api.football-data.org/v1/teams/65/fixtures";
+	 private static final String URL = "http://api.football-data.org/v1/teams/65/fixtures?season={season}";
 
 	@Override
-	public TeamsFixturesDto getMatchresults() {
-		 return restTemplate.getForObject(URL,  TeamsFixturesDto.class);
+	public TeamsFixturesDto getMatchresults(String season) {
+		 return restTemplate.getForObject(URL,  TeamsFixturesDto.class, season);
 	}
 
 }
